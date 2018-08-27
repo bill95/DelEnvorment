@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jaeger.library.StatusBarUtil;
 import com.temple.ne.delenvorment.R;
 import com.temple.ne.delenvorment.utils.QMUIStatusBarHelper;
 
-public class MineFragment extends Fragment{
+@Route(path = "/test/MineFragment", name = "测试fragment")
+public class MineFragment extends Fragment {
 
     @Nullable
     @Override
@@ -20,7 +22,7 @@ public class MineFragment extends Fragment{
         QMUIStatusBarHelper.translucent(getActivity());
         return LayoutInflater.from(getContext()).inflate(R.layout.fragment_mine, container, false);
 
-  }
+    }
 
     public static MineFragment newInstance() {
 
@@ -30,7 +32,6 @@ public class MineFragment extends Fragment{
         fragment.setArguments(args);
         return fragment;
     }
-
 
 
 }

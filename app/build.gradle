@@ -8,6 +8,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -32,4 +37,6 @@ dependencies {
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
     compile 'com.jaeger.statusbarutil:library:1.5.1'
     implementation project(':basecomponent')
+    compile 'com.alibaba:arouter-api:1.4.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

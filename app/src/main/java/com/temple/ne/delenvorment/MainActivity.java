@@ -5,28 +5,21 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.transition.Visibility;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
 import android.widget.FrameLayout;
-
-import com.jaeger.library.StatusBarUtil;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.temple.ne.delenvorment.ui.main.fragment.MainFragment;
 import com.temple.ne.delenvorment.ui.mine.fragment.MineFragment;
-import com.temple.ne.delenvorment.utils.QMUIStatusBarHelper;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
+
 /*
  * @Author: yuki
  * @Date: 2018/8/20
@@ -49,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        StatusBarUtil.setTranslucentForImageViewInFragment(this, 0,null);
-
         ButterKnife.bind(this);
         permissionRequest();
         initView();
+
     }
 
     private void initView() {
@@ -106,17 +99,15 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-        Object o = null;
+        Object o ;
         try {
             o = claz.newInstance();
             if (o instanceof MainFragment) {
                 fragmentTransaction.add(R.id.container, MainFragment.newInstance());
                 fragmentTransaction.commit();
-                return;
             } else if (o instanceof MineFragment) {
                 fragmentTransaction.add(R.id.container, MineFragment.newInstance());
                 fragmentTransaction.commit();
-                return;
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
