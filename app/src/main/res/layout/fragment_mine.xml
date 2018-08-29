@@ -5,10 +5,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="#f0f0"
+        android:background="#5009f0f0"
         android:layout_height="100dp" />
     <ImageView
-        android:src="@mipmap/ic_launcher_round"
+        android:id="@+id/img"
+        android:src="@mipmap/aaa"
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
 </android.support.constraint.ConstraintLayout>

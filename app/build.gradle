@@ -3,7 +3,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.temple.ne.delenvorment"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -39,4 +39,10 @@ dependencies {
     implementation project(':basecomponent')
     compile 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    compile 'com.bilibili:boxing:1.0.2'
+    compile 'com.bilibili:boxing-impl:1.0.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.afollestad.material-dialogs:core:2.0.0-alpha05'
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+
 }

@@ -2,6 +2,7 @@ package com.temple.ne.delenvorment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,6 +12,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+
+import com.bilibili.boxing.Boxing;
+import com.bilibili.boxing.BoxingMediaLoader;
+import com.bilibili.boxing.loader.IBoxingCallback;
+import com.bilibili.boxing.loader.IBoxingMediaLoader;
+import com.bilibili.boxing.model.config.BoxingConfig;
+import com.bilibili.boxing_impl.ui.BoxingActivity;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
+import com.squareup.picasso.Transformation;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.temple.ne.delenvorment.ui.main.fragment.MainFragment;
@@ -61,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.mine:
                         ShowFragment(MineFragment.class);
+
                         break;
                     case R.id.main:
                         ShowFragment(MainFragment.class);
@@ -89,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void ShowFragment(Class claz) {
         hideFragment();
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         for (Fragment fragment : fragments) {
@@ -114,14 +127,13 @@ public class MainActivity extends AppCompatActivity {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-
     }
 
     @SuppressLint("CheckResult")
     private void permissionRequest() {
         RxPermissions rxPermissions = new RxPermissions(this);
         rxPermissions
-                .requestEach(Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
+                .requestEach(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
                 .subscribe(new Consumer<Permission>() {
                     @Override
                     public void accept(Permission permission) {
@@ -138,4 +150,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 }
