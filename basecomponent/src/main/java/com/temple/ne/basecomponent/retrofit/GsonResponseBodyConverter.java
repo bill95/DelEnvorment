@@ -3,7 +3,6 @@ package com.temple.ne.basecomponent.retrofit;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.dingdlc.app.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
@@ -12,8 +11,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import cn.dingdlc.app.constant.Constants;
-import cn.dingdlc.app.utils.DESUtil;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
@@ -27,6 +24,11 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         this.adapter = adapter;
     }
 
+    /**
+     * @param value
+     * @return
+     * @throws IOException
+     */
     @Override
     public T convert(ResponseBody value) throws IOException {
         String result = value.string();

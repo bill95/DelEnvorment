@@ -36,7 +36,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
     compile 'com.jaeger.statusbarutil:library:1.5.1'
-    implementation project(':basecomponent')
+
     compile 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     compile 'com.bilibili:boxing:1.0.2'
