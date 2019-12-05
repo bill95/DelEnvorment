@@ -24,8 +24,8 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Transformation;
-import com.tbruyelle.rxpermissions2.Permission;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+//import com.tbruyelle.rxpermissions2.Permission;
+//import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.temple.ne.delenvorment.ui.main.fragment.MainFragment;
 import com.temple.ne.delenvorment.ui.mine.fragment.MineFragment;
 import java.util.List;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        StatusBarUtil.setTranslucentForImageViewInFragment(this, 0,null);
         ButterKnife.bind(this);
-        permissionRequest();
+//        permissionRequest();
         initView();
 
     }
@@ -129,27 +129,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("CheckResult")
-    private void permissionRequest() {
-        RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions
-                .requestEach(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
-                .subscribe(new Consumer<Permission>() {
-                    @Override
-                    public void accept(Permission permission) {
-                        if (permission.granted) {
-                            // 用户已经同意该权限
-                            Log.d(TAG, permission.name + " is granted.");
-                        } else if (permission.shouldShowRequestPermissionRationale) {
-                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                            Log.d(TAG, permission.name + " is denied. More info should be provided.");
-                        } else {
-                            // 用户拒绝了该权限，并且选中『不再询问』
-                            Log.d(TAG, permission.name + " is denied.");
-                        }
-                    }
-                });
-    }
+//    @SuppressLint("CheckResult")
+//    private void permissionRequest() {
+//        RxPermissions rxPermissions = new RxPermissions(this);
+//        rxPermissions
+//                .requestEach(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA, Manifest.permission.CALL_PHONE)
+//                .subscribe(new Consumer<Permission>() {
+//                    @Override
+//                    public void accept(Permission permission) {
+//                        if (permission.granted) {
+//                            // 用户已经同意该权限
+//                            Log.d(TAG, permission.name + " is granted.");
+//                        } else if (permission.shouldShowRequestPermissionRationale) {
+//                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+//                            Log.d(TAG, permission.name + " is denied. More info should be provided.");
+//                        } else {
+//                            // 用户拒绝了该权限，并且选中『不再询问』
+//                            Log.d(TAG, permission.name + " is denied.");
+//                        }
+//                    }
+//                });
+//    }
 
 
 }
